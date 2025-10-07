@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/langolf/basic-memory/ApronReact/**)",
+      "Bash(mkdir:*)",
+      "Bash(yarn add:*)",
+      "Bash(npx msw init:*)",
+      "Bash(yarn dev)",
+      "Bash(npx playwright install:*)",
+      "Bash(yarn test:e2e)",
+      "Bash(yarn remove:*)",
+      "Bash(tsc --noEmit)",
+      "Bash(npx tsc:*)",
+      "Bash(yarn lint)",
+      "Bash(yarn lint:*)",
+      "Read(//Users/langolf/basic-memory/docs/**)",
+      "Read(//Users/langolf/basic-memory/project/**)",
+      "Bash(yarn build:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

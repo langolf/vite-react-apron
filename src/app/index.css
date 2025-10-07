@@ -1,0 +1,447 @@
+@import "tailwindcss";
+
+/* Copypasted from getapron.com
+Font lincense should be checked for Champ */
+@font-face {
+  font-family: Champ;
+  src:
+    local("Champ Medium"),
+    url(https://cdn.getapron.com/fonts/Champ-Medium.woff2) format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: Champ;
+  src:
+    local("Champ ExtraBold"),
+    url(https://cdn.getapron.com/fonts/Champ-ExtraBold.woff2) format("woff2");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DM Mono;
+  src:
+    local("DM Mono Regular"),
+    url(https://cdn.getapron.com/fonts/DMMono-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DM Sans;
+  src:
+    local("DM Sans Regular"),
+    url(https://cdn.getapron.com/fonts/DMSans-Regular.woff2) format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DM Sans;
+  src:
+    local("DM Sans RegularItalic"),
+    url(https://cdn.getapron.com/fonts/DMSans-RegularItalic.woff2)
+      format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DM Sans;
+  src:
+    local("DM Sans Medium"),
+    url(https://cdn.getapron.com/fonts/DMSans-Medium.woff2) format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DM Sans;
+  src:
+    local("DM Sans MediumItalic"),
+    url(https://cdn.getapron.com/fonts/DMSans-MediumItalic.woff2)
+      format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DM Sans;
+  src:
+    local("DM Sans Bold"),
+    url(https://cdn.getapron.com/fonts/DMSans-Bold.woff2) format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: DM Sans;
+  src:
+    local("DM Sans BoldItalic"),
+    url(https://cdn.getapron.com/fonts/DMSans-BoldItalic.woff2) format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/*
+  Some tokens copypasted from getapron.com
+*/
+@theme {
+  --color-yellow: rgba(255, 216, 1, 1);
+  --color-yellow-90: rgba(255, 202, 40, 1);
+  --color-yellow-80: rgba(255, 184, 0, 1);
+  --color-dark-green: rgba(100, 169, 22, 1);
+  --color-light-green: rgba(179, 229, 124, 1);
+  --color-light-green-30: rgba(235, 249, 219, 1);
+  --color-light-green-60: rgba(215, 244, 183, 1);
+  --color-dark-blue: rgba(0, 120, 212, 1);
+  --color-light-blue: rgba(194, 226, 250, 1);
+  --color-light-blue-20: rgba(239, 247, 253, 1);
+  --color-light-blue-40: rgba(224, 240, 252, 1);
+  --color-light-blue-50: rgba(216, 236, 252, 1);
+  --color-light-blue-80: rgba(206, 231, 251, 1);
+  --color-dark-red: rgba(203, 37, 37, 1);
+  --color-light-red: rgba(229, 113, 113, 1);
+  --color-light-red-20: rgba(253, 231, 231, 1);
+  --color-light-red-30: rgba(252, 207, 207, 1);
+  --color-light-red-70: rgba(251, 151, 154, 1);
+  --color-light-red-85: rgba(249, 128, 131, 1);
+  --color-dark-yellow: rgba(163, 95, 0, 1);
+  --color-dark-yellow-80: rgba(207, 138, 0, 1);
+  --color-light-yellow-80: rgba(249, 234, 159, 1);
+  --color-light-yellow-70: rgba(251, 239, 175, 1);
+  --color-light-yellow-60: rgba(255, 245, 194, 1);
+  --color-light-yellow-50: rgba(253, 245, 207, 1);
+  --color-grey-70: rgba(84, 82, 69, 1);
+  --color-grey-60: rgba(112, 109, 92, 1);
+  --color-grey-50: rgba(140, 136, 115, 1);
+  --color-grey-40: rgba(163, 160, 143, 1);
+  --color-grey-30: rgba(186, 183, 168, 1);
+  --color-grey-20: rgba(212, 210, 196, 1);
+  --color-grey-15: rgba(223, 221, 211, 1);
+  --color-grey-10: rgba(236, 235, 227, 1);
+  --color-grey-5: rgba(245, 244, 237, 1);
+  --color-grey-2: rgba(250, 249, 242, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-black-alpha-5: rgba(0, 0, 0, 0.05);
+  --color-black-alpha-10: rgba(0, 0, 0, 0.1);
+  --color-black-alpha-15: rgba(0, 0, 0, 0.15);
+  --color-black-alpha-20: rgba(0, 0, 0, 0.2);
+  --color-black-alpha-30: rgba(0, 0, 0, 0.3);
+  --color-black-alpha-40: rgba(0, 0, 0, 0.4);
+  --color-black-alpha-60: rgba(0, 0, 0, 0.6);
+  --color-black-alpha-70: rgba(0, 0, 0, 0.7);
+  --color-black-alpha-80: rgba(0, 0, 0, 0.8);
+  --color-white: #fff;
+  --color-white-alpha-15: rgba(255, 255, 255, 0.15);
+  --color-white-alpha-30: rgba(255, 255, 255, 0.3);
+  --color-white-alpha-50: rgba(255, 255, 255, 0.5);
+  --color-white-alpha-60: rgba(255, 255, 255, 0.6);
+  --color-white-alpha-70: rgba(255, 255, 255, 0.7);
+  --color-white-alpha-80: rgba(255, 255, 255, 0.8);
+  --color-transparent: rgba(255, 255, 255, 0);
+  --color-dialog-overlay-background: rgba(1, 50, 51, 0.6);
+  --color-dialog-overlay-icon: rgba(102, 131, 129, 1);
+  --color-document-preview-background: rgba(142, 142, 142, 1);
+  --color-page-text: rgba(0, 0, 0, 1);
+  --color-page-background: rgba(250, 249, 242, 1);
+  --color-page-edit-background: rgba(236, 235, 227, 1);
+  --color-diff-add-text: rgba(0, 0, 0, 1);
+  --color-diff-add-background: rgba(226, 249, 224, 1);
+  --color-diff-remove-text: rgba(229, 113, 113, 1);
+  --color-diff-remove-background: rgba(253, 231, 231, 1);
+  --color-tabs-text: rgba(112, 109, 92, 1);
+  --color-tabs-text-pressed: rgba(0, 0, 0, 1);
+  --color-tabs-indicator-background: rgba(0, 0, 0, 1);
+  --color-button-main-text: rgba(0, 0, 0, 1);
+  --color-button-main-text-disabled: rgba(0, 0, 0, 0.3);
+  --color-button-main-background: rgba(255, 216, 1, 1);
+  --color-button-main-background-hover: rgba(255, 202, 40, 1);
+  --color-button-main-background-pressed: rgba(255, 184, 0, 1);
+  --color-button-main-background-disabled: rgba(0, 0, 0, 0.05);
+  --color-button-common-text: #fff;
+  --color-button-common-text-disabled: rgba(255, 255, 255, 0.5);
+  --color-button-common-background: rgba(0, 0, 0, 1);
+  --color-button-common-background-hover: rgba(0, 0, 0, 0.8);
+  --color-button-common-background-pressed: rgba(0, 0, 0, 0.7);
+  --color-button-common-background-disabled: rgba(0, 0, 0, 0.3);
+  --color-button-minor-text: rgba(0, 0, 0, 1);
+  --color-button-minor-text-disabled: rgba(0, 0, 0, 0.3);
+  --color-button-minor-border: rgba(223, 221, 211, 1);
+  --color-button-minor-border-hover: rgba(223, 221, 211, 1);
+  --color-button-minor-border-pressed: rgba(212, 210, 196, 1);
+  --color-button-minor-border-disabled: rgba(211, 218, 223, 0.3);
+  --color-button-minor-background: rgba(255, 255, 255, 0);
+  --color-button-minor-background-hover: rgba(223, 221, 211, 1);
+  --color-button-minor-background-pressed: rgba(212, 210, 196, 1);
+  --color-button-minor-background-disabled: rgba(211, 218, 223, 0.3);
+  --color-button-destructive-text: #fff;
+  --color-button-destructive-text-disabled: rgba(255, 255, 255, 0.5);
+  --color-button-destructive-background: rgba(229, 113, 113, 1);
+  --color-button-destructive-background-hover: rgba(249, 128, 131, 1);
+  --color-button-destructive-background-pressed: rgba(251, 151, 154, 1);
+  --color-button-destructive-background-disabled: rgba(178, 178, 178, 1);
+  --color-button-minor-active-border: rgba(206, 231, 251, 1);
+  --color-button-minor-active-border-hover: rgba(194, 226, 250, 1);
+  --color-button-minor-active-border-pressed: rgba(194, 226, 250, 1);
+  --color-button-minor-active-border-disabled: rgba(211, 218, 223, 0.3);
+  --color-button-minor-active-background: rgba(206, 231, 251, 1);
+  --color-button-minor-active-background-hover: rgba(194, 226, 250, 1);
+  --color-button-minor-active-background-pressed: rgba(194, 226, 250, 1);
+  --color-button-minor-active-background-disabled: rgba(211, 218, 223, 0.3);
+  --color-surface-primary-background: #fff;
+  --color-surface-primary-border: rgba(236, 235, 227, 1);
+  --color-surface-primary-text: rgba(0, 0, 0, 1);
+  --color-surface-secondary-background: rgba(250, 249, 242, 1);
+  --color-surface-secondary-text: rgba(0, 0, 0, 1);
+  --color-surface-grey-background: rgba(245, 244, 237, 1);
+  --color-surface-grey-text: rgba(0, 0, 0, 1);
+  --color-surface-blue-background: rgba(0, 120, 212, 1);
+  --color-surface-blue-text: #fff;
+  --color-surface-black-background: rgba(0, 0, 0, 1);
+  --color-surface-black-text: #fff;
+  --color-surface-ghost-border: rgba(236, 235, 227, 1);
+  --color-surface-ghost-background: rgba(255, 255, 255, 0);
+  --color-surface-ghost-text: rgba(112, 109, 92, 1);
+  --color-surface-yellow-background: rgba(253, 245, 207, 1);
+  --color-surface-yellow-text: rgba(0, 0, 0, 1);
+  --color-surface-log-border: rgba(236, 235, 227, 1);
+  --color-avatar-celeste-text: rgba(17, 144, 122, 1);
+  --color-avatar-celeste-background: rgba(218, 248, 243, 1);
+  --color-avatar-blue-text: rgba(33, 131, 206, 1);
+  --color-avatar-blue-background: rgba(217, 238, 255, 1);
+  --color-avatar-lavender-text: rgba(92, 97, 222, 1);
+  --color-avatar-lavender-background: rgba(224, 226, 255, 1);
+  --color-avatar-purple-text: rgba(140, 73, 206, 1);
+  --color-avatar-purple-background: rgba(239, 229, 255, 1);
+  --color-avatar-pink-text: rgba(200, 82, 146, 1);
+  --color-avatar-pink-background: rgba(255, 231, 244, 1);
+  --color-avatar-silk-text: rgba(181, 108, 75, 1);
+  --color-avatar-silk-background: rgba(255, 229, 217, 1);
+  --color-avatar-wheat-text: rgba(172, 122, 44, 1);
+  --color-avatar-wheat-background: rgba(255, 235, 204, 1);
+  --color-avatar-blond-text: rgba(148, 122, 12, 1);
+  --color-avatar-blond-background: rgba(255, 245, 204, 1);
+  --color-elevation-100-shadow: rgba(70, 58, 0, 0.1);
+  --color-elevation-200-shadow: rgba(70, 58, 0, 0.2);
+  --color-elevation-300-shadow: rgba(216, 236, 252, 1);
+  --color-elevation-400-shadow: rgba(216, 236, 252, 1);
+  --color-elevation-300-shadow-focused: rgba(0, 120, 212, 1);
+  --color-website-page-background: rgba(255, 254, 249, 1);
+  --color-website-frame-shadow: rgba(0, 0, 0, 0.15);
+  --color-website-red: rgba(229, 49, 79, 1);
+  --fonts-champ: "Champ", Arial, sans-serif;
+  --fonts-dmsans: "DM Sans", sans-serif;
+  --fonts-dmmono: "DM Mono", monospace;
+  --fonts-price-tag-large-main: "Champ", Arial, sans-serif;
+  --fonts-price-tag-large-support: "Champ", Arial, sans-serif;
+  --fonts-price-tag-medium-main: "Champ", Arial, sans-serif;
+  --fonts-price-tag-medium-support: "Champ", Arial, sans-serif;
+  --fonts-price-tag-small-main: "Champ", Arial, sans-serif;
+  --fonts-price-tag-small-support: "Champ", Arial, sans-serif;
+  --fonts-headline-h1: "Champ", Arial, sans-serif;
+  --fonts-headline-h2: "DM Sans", sans-serif;
+  --fonts-headline-h3: "DM Sans", sans-serif;
+  --fonts-title-16: "DM Sans", sans-serif;
+  --fonts-title-14: "DM Sans", sans-serif;
+  --fonts-paragraph-20: "DM Sans", sans-serif;
+  --fonts-paragraph-16: "DM Sans", sans-serif;
+  --fonts-paragraph-14: "DM Sans", sans-serif;
+  --fonts-paragraph-12: "DM Sans", sans-serif;
+  --fonts-label-16: "DM Sans", sans-serif;
+  --fonts-label-13: "DM Sans", sans-serif;
+  --fonts-button-large: "Champ", Arial, sans-serif;
+  --fonts-avatar: "DM Sans", sans-serif;
+  --text-title-16: 16px;
+  --text-label-16: 16px;
+  --textTransforms-avatar: uppercase;
+  --textTransforms-label-13: uppercase;
+  --textTransforms-button-large: uppercase;
+  --fontSizes-price-tag-large-main: 64px;
+  --fontSizes-price-tag-large-support: 36px;
+  --fontSizes-price-tag-medium-main: 32px;
+  --fontSizes-price-tag-medium-support: 18px;
+  --fontSizes-price-tag-small-main: 24px;
+  --fontSizes-price-tag-small-support: 14px;
+  --fontSizes-headline-h1: 32px;
+  --fontSizes-headline-h2: 24px;
+  --fontSizes-headline-h3: 20px;
+  --fontSizes-title-16: 16px;
+  --fontSizes-title-14: 14px;
+  --fontSizes-paragraph-20: 20px;
+  --fontSizes-paragraph-16: 16px;
+  --fontSizes-paragraph-14: 14px;
+  --fontSizes-paragraph-12: 12px;
+  --text-label-13: 13px;
+  --text-headline-h2: 24px;
+  --fontSizes-button-large: 20px;
+  --fontSizes-avatar-large: 14px;
+  --fontSizes-avatar-medium: 12px;
+  --fontSizes-avatar-small: 9px;
+  --fontWeights-400: 400;
+  --fontWeights-500: 500;
+  --fontWeights-700: 700;
+  --fontWeights-800: 800;
+  --fontWeights-price-tag-large-main: 400;
+  --fontWeights-price-tag-large-support: 800;
+  --fontWeights-price-tag-medium-main: 400;
+  --fontWeights-price-tag-medium-support: 800;
+  --fontWeights-price-tag-small-main: 400;
+  --fontWeights-price-tag-small-support: 800;
+  --fontWeights-headline-h1: 400;
+  --fontWeights-headline-h2: 700;
+  --fontWeights-headline-h3: 700;
+  --fontWeights-title-16: 700;
+  --fontWeights-title-14: 700;
+  --fontWeights-paragraph-20: 400;
+  --fontWeights-paragraph-16: 400;
+  --fontWeights-paragraph-14: 400;
+  --fontWeights-paragraph-12: 400;
+  --fontWeights-label-16: 400;
+  --fontWeights-label-13: 500;
+  --fontWeights-button-large: 800;
+  --fontWeights-avatar: 700;
+  --fontFeatureSettings-price-tag-large-main: "pnum" on, "lnum" on;
+  --fontFeatureSettings-price-tag-large-support: "pnum" on, "lnum" on;
+  --fontFeatureSettings-price-tag-medium-main: "pnum" on, "lnum" on;
+  --fontFeatureSettings-price-tag-medium-support: "pnum" on, "lnum" on;
+  --fontFeatureSettings-price-tag-small-main: "pnum" on, "lnum" on;
+  --fontFeatureSettings-price-tag-small-support: "pnum" on, "lnum" on;
+  --fontFeatureSettings-headline-h1: "pnum" on, "lnum" on, "ss09" on;
+  --fontFeatureSettings-headline-h2: "pnum" on, "lnum" on, "ss09" on;
+  --fontFeatureSettings-headline-h3: "pnum" on, "lnum" on, "ss09" on;
+  --fontFeatureSettings-button-large: "pnum" on, "lnum" on, "ss09" on;
+  --fontVariations-w600: "wght" 600;
+  --fontVariations-w700: "wght" 700;
+  --fontVariations-w900: "wght" 900;
+  --fontVariations-price-tag-large-main: "wght" 700;
+  --fontVariations-price-tag-large-support: "wght" 900;
+  --fontVariations-price-tag-medium-main: "wght" 700;
+  --fontVariations-price-tag-medium-support: "wght" 900;
+  --fontVariations-price-tag-small-main: "wght" 700;
+  --fontVariations-price-tag-small-support: "wght" 900;
+  --fontVariations-headline-h1: "wght" 700;
+  --fontVariations-headline-h2: "wght" 700;
+  --fontVariations-headline-h3: "wght" 700;
+  --fontVariations-button-large: "wght" 600;
+  --gradients-scroll-viewport: linear-gradient(
+    180deg,
+    rgba(250, 249, 242, 1),
+    rgba(250, 249, 242, 0.8),
+    rgba(250, 249, 242, 0)
+  );
+  --letterSpacings-price-tag-large-main: 0.01em;
+  --letterSpacings-price-tag-large-support: 0.05em;
+  --letterSpacings-price-tag-medium-main: 0.03em;
+  --letterSpacings-price-tag-medium-support: 0.08em;
+  --letterSpacings-price-tag-small-main: 0.04em;
+  --letterSpacings-price-tag-small-support: 0.09em;
+  --letterSpacings-headline-h1: 0.02em;
+  --letterSpacings-title-16: normal;
+  --letterSpacings-title-14: normal;
+  --letterSpacings-paragraph-20: normal;
+  --letterSpacings-paragraph-16: normal;
+  --letterSpacings-paragraph-14: normal;
+  --letterSpacings-paragraph-12: normal;
+  --letterSpacings-label-16: normal;
+  --letterSpacings-label-13: 0.03em;
+  --letterSpacings-button-large: 0.06em;
+  --letterSpacings-avatar: 0.02em;
+  --lineHeights-price-tag-large-main: 64px;
+  --lineHeights-price-tag-large-support: 42px;
+  --lineHeights-price-tag-medium-main: 38px;
+  --lineHeights-price-tag-medium-support: 27px;
+  --lineHeights-price-tag-small-main: 28px;
+  --lineHeights-price-tag-small-support: 20px;
+  --lineHeights-headline-h1: 40px;
+  --lineHeights-headline-h2: 32px;
+  --lineHeights-headline-h3: 26px;
+  --lineHeights-title-16: 20px;
+  --lineHeights-title-14: 18px;
+  --lineHeights-paragraph-20: 26px;
+  --lineHeights-paragraph-16: 20px;
+  --lineHeights-paragraph-14: 18px;
+  --lineHeights-paragraph-12: 16px;
+  --lineHeights-label-16: 20px;
+  --lineHeights-label-13: 16px;
+  --lineHeights-button-large: 24px;
+  --lineHeights-avatar-large: 20px;
+  --lineHeights-avatar-medium: 16px;
+  --lineHeights-avatar-small: 12px;
+  --shadows-elevation-top: 0px -4px 16px rgba(70, 58, 0, 0.1);
+  --shadows-elevation-bottom: 0px 4px 16px rgba(70, 58, 0, 0.1);
+  --shadows-elevation-100: 0px 4px 12px rgba(70, 58, 0, 0.1);
+  --shadows-elevation-200: 0px 8px 12px rgba(70, 58, 0, 0.2);
+  --shadows-elevation-300: 0px 4px 12px rgba(216, 236, 252, 1);
+  --shadows-elevation-400: 0px 8px 12px rgba(216, 236, 252, 1);
+  --shadows-focus-elevation-300:
+    0px 4px 12px rgba(216, 236, 252, 1),
+    inset rgba(0, 120, 212, 1) 0px 0px 0px 2px;
+  --shadows-focus-elevation-400:
+    0px 8px 12px rgba(216, 236, 252, 1),
+    inset rgba(0, 120, 212, 1) 0px 0px 0px 2px;
+  --shadows-website-elevation-card: 0px 18px 38px rgba(93, 56, 0, 0.1);
+  --shadows-website-frame: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  --space-0: 0px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-28: 28px;
+  --space-30: 30px;
+  --space-32: 32px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-54: 54px;
+  --space-56: 56px;
+  --space-64: 64px;
+  --space-80: 80px;
+  --space-96: 96px;
+  --space-120: 120px;
+  --space-128: 128px;
+  --space-auto: auto;
+  --radii-4: 4px;
+  --radii-8: 8px;
+  --radii-16: 16px;
+  --radii-20: 20px;
+  --radii-22: 22px;
+  --radii-32: 32px;
+  --radii-round: 9999px;
+}
+
+body {
+  background-color: var(--color-grey-2);
+  color: var(--color-black);
+  font:
+    16px/1.5 "DM Sans",
+    sans-serif;
+}
+
+#root {
+  transition: all 0.2s ease-in;
+}
+
+h1 {
+  font-family: "Champ", sans-serif;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 4.167vw + 0.5rem, 4.5rem);
+  line-height: clamp(2.75rem, 4.167vw + 0.75rem, 5rem);
+}
+
+form {
+  width: 100%;
+}

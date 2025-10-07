@@ -1,0 +1,907 @@
+.intercom-wrapper {
+  height: min(704px, 100% - 108px);
+  min-height: 80px;
+  width: min(400px, max(0px, -24px + 100vw));
+  max-height: 704px;
+  position: fixed;
+  transform-origin: right bottom;
+  bottom: 88px;
+  right: 24px;
+  background: white;
+  opacity: 0;
+  transform: scale(0);
+  transition:
+    width 200ms,
+    height 200ms,
+    max-height 200ms,
+    transform 300ms cubic-bezier(0, 1.2, 1, 1),
+    opacity 83ms ease-out;
+
+  > div {
+    display: contents;
+  }
+}
+
+.intercom-wrapper.is-open {
+  z-index: 2147483000;
+  position: fixed;
+  bottom: 88px;
+  right: 24px;
+  transform-origin: right bottom;
+  visibility: visible;
+  height: min(704px, 100% - 108px);
+  min-height: 80px;
+  width: min(400px, max(0px, -24px + 100vw));
+  max-height: 704px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: rgba(9, 14, 21, 0.16) 0px 5px 40px 0px;
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    width 200ms,
+    height 200ms,
+    max-height 200ms,
+    transform 300ms cubic-bezier(0, 1.2, 1, 1),
+    opacity 83ms ease-out;
+  pointer-events: all;
+}
+
+.intercom-namespace {
+  tab-size: 4;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  --body-bg: rgb(255, 255, 255);
+  --body-image: none;
+  --body-bg-rgb: 255, 255, 255;
+  --body-border: rgb(230, 230, 230);
+  --body-primary-color: #1a1a1a;
+  --body-secondary-color: #737373;
+  --body-reaction-bg: rgb(242, 242, 242);
+  --body-reaction-text-color: rgb(64, 64, 64);
+  --body-toc-active-border: #737373;
+  --body-toc-inactive-border: #f2f2f2;
+  --body-toc-inactive-color: #737373;
+  --body-toc-active-font-weight: 400;
+  --body-table-border: rgb(204, 204, 204);
+  --body-color: hsl(0, 0%, 0%);
+  --footer-bg: rgb(0, 0, 0);
+  --footer-image: none;
+  --footer-border: rgb(51, 51, 51);
+  --footer-color: hsl(0, 0%, 100%);
+  --header-bg: rgb(251, 239, 175);
+  --header-image: none;
+  --header-color: hsl(0, 0%, 0%);
+  --collection-card-bg: rgb(251, 249, 237);
+  --collection-card-image: none;
+  --collection-card-color: hsl(0, 0%, 0%);
+  --card-bg: rgb(255, 255, 255);
+  --card-border-color: rgb(230, 230, 230);
+  --card-border-inner-radius: 12px;
+  --card-border-radius: 16px;
+  --card-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --search-bar-border-radius: 30px;
+  --search-bar-width: 100%;
+  --ticket-blue-bg-color: #dce1f9;
+  --ticket-blue-text-color: #334bfa;
+  --ticket-green-bg-color: #d7efdc;
+  --ticket-green-text-color: #0f7134;
+  --ticket-orange-bg-color: #ffebdb;
+  --ticket-orange-text-color: #b24d00;
+  --ticket-red-bg-color: #ffdbdb;
+  --ticket-red-text-color: #df2020;
+  --header-height: 245px;
+  --header-subheader-background-color: #000000;
+  --header-subheader-font-color: #ffffff;
+  --content-block-bg: rgb(255, 255, 255);
+  --content-block-image: none;
+  --content-block-color: hsl(0, 0%, 10%);
+  --content-block-button-bg: rgb(51, 75, 250);
+  --content-block-button-image: none;
+  --content-block-button-color: hsl(0, 0%, 100%);
+  --content-block-button-radius: 6px;
+  --primary-color: hsl(206, 100%, 42%);
+  --primary-color-alpha-10: hsla(206, 100%, 42%, 0.1);
+  --primary-color-alpha-60: hsla(206, 100%, 42%, 0.6);
+  --text-on-primary-color: #ffffff;
+  --font-family-primary: Champ Medium;
+  --font-family-secondary: DM Sans;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  --tw-border-spacing-x: 0;
+  --tw-border-spacing-y: 0;
+  --tw-translate-x: 0;
+  --tw-translate-y: 0;
+  --tw-rotate: 0;
+  --tw-skew-x: 0;
+  --tw-skew-y: 0;
+  --tw-scale-x: 1;
+  --tw-scale-y: 1;
+  --tw-pan-x: ;
+  --tw-pan-y: ;
+  --tw-pinch-zoom: ;
+  --tw-scroll-snap-strictness: proximity;
+  --tw-gradient-from-position: ;
+  --tw-gradient-via-position: ;
+  --tw-gradient-to-position: ;
+  --tw-ordinal: ;
+  --tw-slashed-zero: ;
+  --tw-numeric-figure: ;
+  --tw-numeric-spacing: ;
+  --tw-numeric-fraction: ;
+  --tw-ring-inset: ;
+  --tw-ring-offset-width: 0px;
+  --tw-ring-offset-color: #fff;
+  --tw-ring-color: rgb(59 130 246/0.5);
+  --tw-ring-offset-shadow: 0 0 #0000;
+  --tw-ring-shadow: 0 0 #0000;
+  --tw-shadow: 0 0 #0000;
+  --tw-shadow-colored: 0 0 #0000;
+  --tw-blur: ;
+  --tw-brightness: ;
+  --tw-contrast: ;
+  --tw-grayscale: ;
+  --tw-hue-rotate: ;
+  --tw-invert: ;
+  --tw-saturate: ;
+  --tw-sepia: ;
+  --tw-drop-shadow: ;
+  --tw-backdrop-blur: ;
+  --tw-backdrop-brightness: ;
+  --tw-backdrop-contrast: ;
+  --tw-backdrop-grayscale: ;
+  --tw-backdrop-hue-rotate: ;
+  --tw-backdrop-invert: ;
+  --tw-backdrop-opacity: ;
+  --tw-backdrop-saturate: ;
+  --tw-backdrop-sepia: ;
+  --tw-contain-size: ;
+  --tw-contain-layout: ;
+  --tw-contain-paint: ;
+  --tw-contain-style: ;
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size-adjust: none;
+  font-size: 100%;
+  font-style: normal;
+  letter-spacing: normal;
+  font-stretch: normal;
+  font-variant: normal;
+  font-weight: normal;
+  text-align-last: initial;
+  text-decoration: none;
+  text-emphasis: none;
+  text-indent: 0px;
+  text-shadow: none;
+  text-transform: none;
+  alignment-baseline: baseline;
+  animation-play-state: running;
+  backface-visibility: visible;
+  background-color: transparent;
+  background-image: none;
+  baseline-shift: baseline;
+  border: 0px none transparent;
+  inset: auto;
+  box-decoration-break: slice;
+  box-sizing: content-box;
+  caption-side: top;
+  clear: none;
+  clip: auto;
+  color: inherit;
+  columns: auto;
+  column-fill: balance;
+  column-gap: normal;
+  content: normal;
+  counter-increment: none;
+  counter-reset: none;
+  cursor: auto;
+  direction: ltr;
+  dominant-baseline: auto;
+  empty-cells: show;
+  float: none;
+  hyphenate-character: auto;
+  hyphens: manual;
+  image-rendering: auto;
+  line-height: inherit;
+  list-style: outside none disc;
+  margin: 0px;
+  max-width: none;
+  min-width: 0px;
+  orphans: 2;
+  outline-offset: 0px;
+  padding: 0px;
+  page: auto;
+  break-after: auto;
+  break-before: auto;
+  break-inside: auto;
+  perspective: none;
+  perspective-origin: 50% 50%;
+  quotes: none;
+  resize: none;
+  size: auto;
+  table-layout: auto;
+  transform: none;
+  transform-style: flat;
+  unicode-bidi: normal;
+  vertical-align: baseline;
+  white-space: normal;
+  widows: 2;
+  word-break: normal;
+  word-spacing: normal;
+  overflow-wrap: normal;
+  text-align: start;
+  -webkit-font-smoothing: antialiased;
+  display: block;
+  z-index: 2147483000;
+  bottom: 88px;
+  right: 24px;
+  transform-origin: right bottom;
+  visibility: visible;
+  height: min(704px);
+  min-height: 80px;
+  width: min(400px);
+  max-height: 704px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: rgba(9, 14, 21, 0.16) 0px 5px 40px 0px;
+  opacity: 1;
+  transition:
+    width 200ms,
+    height 200ms,
+    max-height 200ms,
+    transform 300ms cubic-bezier(0, 1.2, 1, 1),
+    opacity 83ms ease-out;
+  pointer-events: all;
+
+  > div {
+    height: 100%;
+  }
+}
+
+.intercom-namespace .intercom-app {
+  line-height: 1;
+}
+
+/*! CSS Used from: Embedded */
+.intercom-namespace .intercom-with-namespace-q8pbcx {
+  z-index: 2147483000;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color-scheme: none;
+  background: none;
+  filter: drop-shadow(rgba(9, 14, 21, 0.06) 0px 1px 6px)
+    drop-shadow(rgba(9, 14, 21, 0.16) 0px 2px 32px);
+}
+.intercom-namespace .intercom-with-namespace-12queqi {
+  user-select: none;
+  z-index: 2147483000;
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  transition: transform 167ms cubic-bezier(0.33, 0, 0, 1);
+  transform-origin: center center;
+}
+.intercom-namespace .intercom-with-namespace-12queqi:hover {
+  transition: transform 250ms cubic-bezier(0.33, 0, 0, 1);
+  transform: scale(1.1);
+}
+.intercom-namespace .intercom-with-namespace-12queqi:active {
+  transform: scale(0.85);
+  transition: transform 134ms cubic-bezier(0.45, 0, 0.2, 1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .intercom-namespace .intercom-with-namespace-12queqi {
+    transition: none !important;
+    transform: none !important;
+    animation: auto ease 0s 1 normal none running none !important;
+    opacity: 1 !important;
+    scale: 1 !important;
+  }
+}
+.intercom-namespace .intercom-with-namespace-18335a6 > iframe {
+  mask-image: radial-gradient(
+    1px at -10px -10px,
+    transparent 0px,
+    rgb(255, 255, 255) 1px
+  );
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  visibility: visible;
+}
+.intercom-namespace .intercom-with-namespace-5y1cnf {
+  z-index: 2147482998;
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  bottom: 0px;
+  right: 0px;
+  content: "";
+  pointer-events: none;
+  background: radial-gradient(
+    at right bottom,
+    rgba(29, 39, 54, 0.16) 0%,
+    rgba(29, 39, 54, 0) 72%
+  );
+}
+
+/*! CSS Used from: Embedded */
+.intercom-2v90l4 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  transform: translateZ(0);
+}
+.intercom-1ch1fqb {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  max-height: 100%;
+}
+.intercom-1v771ry {
+  z-index: 3;
+}
+.intercom-1q3fskc {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  overflow: hidden;
+  z-index: 2;
+}
+.intercom-dolqcm {
+  position: relative;
+  box-sizing: border-box;
+  overflow-y: visible;
+  z-index: 2;
+}
+.intercom-vn2jd7 {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  inset: 0px;
+  box-sizing: border-box;
+  color: rgb(20, 22, 26);
+  transition: opacity 150ms;
+}
+.intercom-vn2jd7 {
+  opacity: 0;
+  z-index: 1;
+}
+.intercom-vn2jd7.fade-enter-done,
+.intercom-vn2jd7.fade-appear-done {
+  opacity: 1;
+}
+.intercom-r9igje {
+  position: absolute;
+  inset: 0px;
+  z-index: 2147483000;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out;
+  pointer-events: none;
+}
+.intercom-1azakc {
+  text-align: center;
+}
+.intercom-17cclyi {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(20, 22, 26);
+  margin: 0px 0px 6px;
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-align: center;
+}
+.intercom-1y2h2it {
+  font-size: 14px;
+  color: rgb(108, 111, 116);
+  margin: 0px;
+  line-height: 1.4;
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  text-align: center;
+}
+.intercom-1i1zgvg {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  flex-grow: 1;
+  overflow: hidden;
+}
+.intercom-1k0vitj {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0%;
+  overflow: hidden;
+  position: relative;
+}
+.intercom-z1r0s9 {
+  pointer-events: none;
+  transition:
+    margin 0.3s ease-out,
+    opacity 0.3s ease-out;
+  z-index: 2147483002;
+}
+.intercom-z1r0s9 > * {
+  pointer-events: all;
+}
+.intercom-1sjbmot {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 21px;
+  border-top: 1px solid rgb(245, 245, 245);
+  box-shadow: rgba(9, 14, 21, 0.06) 0px 0px 25px 0px;
+  background-color: rgb(255, 255, 255);
+  height: 80px;
+  padding: 0px;
+}
+.intercom-17sfl8f {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 18px 3px;
+  cursor: pointer;
+  transition: 150ms;
+  line-height: 14px;
+  overflow: hidden;
+  text-overflow: clip;
+  text-align: center;
+  color: rgb(20, 22, 26);
+  font-weight: 600;
+}
+.intercom-miyt7i {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin: 0px auto 8px;
+  pointer-events: none;
+}
+.intercom-miyt7i > svg > path {
+  fill: rgb(20, 22, 26);
+}
+.intercom-1axcuo0 {
+  position: absolute;
+  line-height: 13px;
+  transform: translateX(100%);
+  top: -5px;
+  right: calc(100% - 22px);
+}
+.intercom-s60ug3 {
+  display: block;
+  text-align: center;
+  margin: 0px auto;
+}
+.intercom-1pkg67a {
+  flex: 1 1 0%;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 18px 3px;
+  cursor: pointer;
+  transition: 150ms;
+  line-height: 14px;
+  overflow: hidden;
+  text-overflow: clip;
+  text-align: center;
+  color: rgb(108, 111, 116);
+}
+.intercom-1pkg67a svg * {
+  transition: 150ms;
+}
+.intercom-1pkg67a svg [class$="fill"] {
+  fill: rgb(108, 111, 116);
+  stroke: none;
+}
+.intercom-1pkg67a:hover {
+  color: rgb(20, 22, 26);
+}
+.intercom-1pkg67a:hover svg [class*="fill"] {
+  fill: rgb(20, 22, 26);
+  stroke: none;
+}
+.intercom-1pkg67a:hover svg [class*="stroke"] {
+  stroke: rgb(20, 22, 26);
+}
+.intercom-ea7o3d {
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  margin: 0px auto 8px;
+  pointer-events: none;
+}
+.intercom-wo0xl8 {
+  overflow: hidden auto;
+  min-height: 100%;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(9, 14, 21, 0.4) transparent;
+  scrollbar-width: thin;
+}
+.intercom-wo0xl8::-webkit-scrollbar {
+  appearance: none;
+  width: 5px;
+}
+.intercom-wo0xl8::-webkit-scrollbar-thumb {
+  background-color: rgba(9, 14, 21, 0.4);
+  border-radius: 5px;
+}
+.intercom-wo0xl8::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.intercom-qohjs1 {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0px 20px;
+  min-height: 100%;
+}
+.intercom-dclegk {
+  min-height: fit-content;
+}
+.intercom-bjn8wh {
+  position: relative;
+}
+.intercom-1j7fstw {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  height: 140px;
+  width: 100%;
+  opacity: 1;
+  z-index: 0;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgb(255, 255, 255) 100%
+  );
+}
+.intercom-jeinrp {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 70px;
+  height: 40px;
+}
+.intercom-jeinrp .e2j9h0w4 {
+  margin-right: 40px;
+}
+.intercom-jeinrp .e2j9h0w0 {
+  margin-left: 0px;
+}
+.intercom-143t8ht {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 4px;
+  overflow: hidden;
+}
+.intercom-143t8ht img {
+  max-height: 32px;
+  max-width: 100%;
+}
+.intercom-143t8ht img {
+  max-width: 100%;
+  object-fit: scale-down;
+}
+.intercom-267ulp {
+  margin-right: 42px;
+  margin-left: 10px;
+}
+.intercom-7itejd {
+  display: flex;
+  flex: 0 0 auto;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-right: 6px;
+  white-space: nowrap;
+  width: fit-content;
+  overflow: hidden;
+  line-height: 1;
+}
+.intercom-7itejd .e85jzrc0:not(:first-of-type) .e2rn66r0 {
+  mask: radial-gradient(circle at -17px center, transparent 21px, white 22px);
+}
+.intercom-1w0b59e {
+  font-size: 28px;
+  line-height: 34px;
+}
+.intercom-1w0b59e * {
+  overflow-wrap: break-word;
+  font-weight: 600;
+}
+.intercom-1y9j4lp {
+  color: rgb(20, 22, 26);
+  text-shadow: rgba(20, 22, 26, 0.3) 0px 0px 30px;
+  opacity: 1;
+}
+.intercom-wwy6gl {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: -125px;
+}
+.intercom-nu8p89 {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgb(245, 245, 245);
+  padding: 0px;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  transition: box-shadow 150ms;
+  box-shadow:
+    rgba(9, 14, 21, 0.06) 0px 4px 28px 0px,
+    rgba(9, 14, 21, 0.06) 0px 1px 4px 0px;
+}
+.intercom-nu8p89 * {
+  cursor: pointer !important;
+}
+.intercom-nu8p89 .erf08rx1 {
+  transition: color 250ms;
+}
+.intercom-nu8p89:hover .erf08rx1 {
+  color: rgb(20, 22, 26);
+}
+.intercom-nu8p89:hover {
+  box-shadow:
+    rgba(9, 14, 21, 0.06) 0px 4px 28px 0px,
+    rgba(9, 14, 21, 0.06) 0px 1px 4px 0px;
+}
+.intercom-1cnueyx {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  box-sizing: border-box;
+  color: rgb(20, 22, 26);
+  padding: 16px 20px;
+  -webkit-box-align: center;
+  align-items: center;
+  opacity: 1;
+  cursor: default;
+}
+.intercom-1cnueyx:hover .e1xqkdfq6 {
+  color: rgb(20, 22, 26);
+  cursor: default;
+}
+.intercom-yetwdb {
+  margin-right: auto;
+  flex: 1 1 0%;
+  font-size: 14px;
+  line-height: 21px;
+  min-width: 0px;
+}
+.intercom-i3l71c {
+  color: rgb(20, 22, 26);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 150%;
+  font-family:
+    system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  padding: 0px;
+}
+.intercom-qln3w5 {
+  color: rgb(108, 111, 116);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: break-word;
+}
+.intercom-t3a5jf {
+  margin-left: 8px;
+  align-self: center;
+}
+.intercom-1nc24gi {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: auto;
+  min-width: 16px;
+  height: 16px;
+  color: rgb(20, 22, 26);
+}
+.intercom-1nc24gi svg {
+  display: block;
+}
+.intercom-1nc24gi svg {
+  width: auto;
+  min-width: 16px;
+  height: 16px;
+}
+.intercom-1nc24gi svg * {
+  transition:
+    fill 300ms,
+    stroke 300ms;
+}
+.intercom-1286s7y {
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgb(245, 245, 245);
+  padding: 0px;
+  background: rgb(255, 255, 255);
+  border-radius: 12px;
+  transition: box-shadow 150ms;
+  box-shadow:
+    rgba(9, 14, 21, 0.06) 0px 4px 28px 0px,
+    rgba(9, 14, 21, 0.06) 0px 1px 4px 0px;
+}
+.intercom-1286s7y:hover {
+  box-shadow:
+    rgba(9, 14, 21, 0.06) 0px 4px 28px 0px,
+    rgba(9, 14, 21, 0.06) 0px 1px 4px 0px;
+}
+.intercom-1nsqd2r {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 21px;
+}
+.intercom-17echh9 {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  color: rgb(20, 22, 26);
+  transition: background 250ms;
+  background: rgb(255, 255, 255);
+}
+.intercom-17echh9:hover {
+  color: rgb(20, 22, 26);
+  background: rgb(229, 229, 229);
+}
+.intercom-17echh9:hover {
+  background: none;
+}
+.intercom-1n4dbfd {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: auto;
+  min-width: 16px;
+  height: 16px;
+  color: rgb(20, 22, 26);
+}
+.intercom-1n4dbfd svg {
+  display: block;
+}
+.intercom-1n4dbfd svg {
+  width: auto;
+  min-width: 16px;
+  height: 16px;
+}
+.intercom-1n4dbfd svg * {
+  transition:
+    fill 300ms,
+    stroke 300ms;
+}
+.intercom-11gu8o2 {
+  height: 326px;
+  width: 100%;
+  position: fixed;
+  top: 0%;
+  left: 0px;
+  transform: translateZ(0px);
+  z-index: -1;
+  background-color: rgb(251, 239, 175);
+}
+.intercom-8zj3up {
+  transition:
+    min-height 150ms ease-out,
+    max-height 150ms ease-out,
+    background-color 150ms ease-in-out;
+  min-height: 326px;
+  max-height: 326px;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+}
+.intercom-2sqc95 {
+  padding: 32px 20px 150px;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  position: relative;
+  color: rgb(20, 22, 26);
+  opacity: 0.995575;
+}
+.intercom-apg1te {
+  z-index: 2147483003;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 150ms;
+  display: flex;
+  position: fixed;
+  top: 32px;
+  right: 20px;
+  pointer-events: all;
+
+  svg {
+    pointer-events: none;
+  }
+}
+.intercom-apg1te:hover {
+  background-color: rgba(9, 14, 21, 0.1);
+}
+.intercom-apg1te i {
+  display: inline;
+}
+.intercom-apg1te:hover {
+  background-color: rgba(9, 14, 21, 0.2);
+}
+.intercom-1lcqd7m {
+  display: inline-block;
+  z-index: 1;
+}
+.intercom-1lcqd7m:not(:first-of-type) {
+  margin-left: -2px;
+}
+.intercom-ldey1v {
+  margin: 0px auto;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: default;
+  position: relative;
+  overflow: visible;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 20px;
+}
+.intercom-ldey1v img {
+  border-radius: 50%;
+  background-color: rgb(200, 200, 200);
+}
+.intercom-ldey1v img {
+  width: 40px;
+  height: 40px;
+}
