@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# Vite React Apron
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React application built with Vite, TypeScript, React Router, TanStack Query, and MSW for API mocking.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js (v18 or higher)
+- Yarn package manager
 
-## React Compiler
+## Setup
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install dependencies:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+yarn
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Initialize Playwright browsers (for E2E tests):
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npx playwright install
 ```
+
+## Running the Application
+
+Start the development server:
+
+```bash
+yarn dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Testing
+
+### E2E Tests
+
+Run Playwright tests:
+
+```bash
+yarn test:e2e
+```
+
+Run tests in UI mode:
+
+```bash
+yarn test:e2e:ui
+```
+
+### Linting
+
+Run ESLint:
+
+```bash
+yarn lint
+```
+
+### Type Checking
+
+Run TypeScript compiler:
+
+```bash
+yarn tsc
+```
+
+## Building for Production
+
+Build the application:
+
+```bash
+yarn build
+```
+
+Preview the production build:
+
+```bash
+yarn preview
+```
+
+## Storybook
+
+Run Storybook for component development:
+
+```bash
+yarn storybook
+```
+
+Build Storybook:
+
+```bash
+yarn build-storybook
+```
+
+## Tech Stack
+
+- **React 19** - UI library
+- **TypeScript** - Type safety
+- **Vite** - Build tool and dev server
+- **React Router v7** - Routing
+- **TanStack Query** - Data fetching and caching
+- **MSW** - API mocking
+- **Radix UI** - Accessible component primitives
+- **Tailwind CSS v4** - Styling
+- **React Hook Form + Zod** - Form handling and validation
+- **Playwright** - E2E testing
+- **Storybook** - Component documentation
